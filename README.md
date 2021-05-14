@@ -1,0 +1,1 @@
+# self-perish-project
