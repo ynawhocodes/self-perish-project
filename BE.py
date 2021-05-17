@@ -32,3 +32,4 @@ for i in range(1, imageNum):
             print("<div class=\"block block" + str(i) + "><a href=\"" +  url[i] + "\" class=\"link\">링크</a><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + folderName + "/" + imageName + "_" + str(i) + ".jpg?" + parameter + "\" alt=\"\"></div>")
         else:
             print("<div class=\"block block" + str(i) + "><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + folderName + "/" + imageName +  "_" +  str(i) + ".jpg?" + parameter + "\" alt=\"\"></div>")
+ 
