@@ -4,7 +4,7 @@ print("\n----------------------------[설정]-----------------------------------
 # imageName = input("\n이미지명을 입력해주세요: ")
 imageNum = int(input("\n이미지 개수를 입력하세요: "))
 parameter = input("\n파라미터 값을 입력해주세요: ")
-linkImageNum = list(input("\n링크있는 이미지 번호를 적어주세요 (ex. 3 5 11): ").split())
+linkImageNum = list(input("\n링크있는 이미지 번호를 입력해주세요 (ex. 3 5 11): ").split())
 folderName = input("\n폴더명을 입력해주세요: ")
    
 print("\n----------------------------[URL입력]------------------------------------------\n")
