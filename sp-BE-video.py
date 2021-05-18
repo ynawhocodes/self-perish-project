@@ -6,6 +6,14 @@ imageNum = int(input("\n이미지 개수를 입력하세요: "))
 parameter = input("\n파라미터 값을 입력해주세요: ")
 linkImageNum = list(input("\n링크있는 이미지 번호를 적어주세요 (ex. 3 5 11): ").split())
 folderName = input("\n폴더명을 입력해주세요: ")
+
+isVideo = input("유튜브영상이 삽입되나요? (y/n):")
+
+def video():
+    if(isVideo == 'y'):
+
+
+    else:
    
 print("\n----------------------------[URL입력]------------------------------------------\n")
 
@@ -21,8 +29,7 @@ def inputUrl():
 def style(topList, marginLeftList, unit): 
     for i in linkImageNum:
         print("    .n-detail-special .block" + i + " .link {top:" + topList[int(i)] + unit + "; margin-left:" + marginLeftList[int(i)] + unit + ";}")
-    
-    print("    .n-detail-special .block" +  str(imageNum - 1) + ".link{top:40%; width:100%; height:20%; margin-left:-50%;}")
+
     print("</style>\n")
 
 inputUrl()
@@ -56,7 +63,7 @@ inpuPosition()
 print("\n\n--------------------------------[결과]--------------------------------------\n\n")
 
 def blockCode():        
-    for i in range(1, imageNum + 1):
+    for i in range(1, imageNum):
         if i < 10:
             if str(i) in linkImageNum:
                 print("<div class=\"block block0" + str(i) + "><a href=\"" + url[i] + "\" class=\"link\">링크</a><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + folderName + "/img_0" + str(i)+".jpg?" + parameter + "\" alt=\"\"></div>")
@@ -72,7 +79,7 @@ def blockCode():
 
 # pc
 print("\n***************PC code*******************\n")
-print("<style>\n    .n-detail-special {background-color:#" + bgColor + ";}")
+print("<style>\n.n-detail-special {background-color:#" + bgColor + ";}")
 style(top, marginLeft, "%")
 blockCode()
 
@@ -82,6 +89,6 @@ print("\n***************MOBILE mobile*******************\n")
 # top, margin-left 모바일 비율로 변경
 mToPc(top, marginLeft)
    
-print("<style>\n    .n-detail-special .link {width:25%; min-height:50px;}")
+print("<style>\n.n-detail-special .link {width:25%; min-height:50px;}")
 style(top, marginLeft, "px")
 blockCode()
