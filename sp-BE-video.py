@@ -2,6 +2,7 @@ print("\n----------------------------[설정]-----------------------------------
 
 # imageName = input("\n이미지명을 입력해주세요: ")
 imageNum = int(input("\n이미지 개수를 입력하세요: "))
+imageHeight = int(input("\n이미지 공통 분할 높이를 입력하세요: "))
 parameter = input("\n파라미터 값을 입력해주세요: ")
 linkImageNum = list(input("\n링크있는 이미지 번호를 입력해주세요 (ex. 3 5 11): ").split())
 folderName = input("\n폴더명을 입력해주세요: ")
@@ -49,8 +50,8 @@ print("\n----------------------------[위치 잡기]----------------------------
 # mobile to pc
 def mToPc(topList, marginLeftList):
     for i in linkImageNum:    
-        topList[int(i)] = str(int(topList[int(i)]) * 20)
-        marginLeftList[int(i)] = str(int(marginLeftList[int(i)]) * 20)
+        topList[int(i)] = format(int(topList[int(i)]) * imageHeight / 100, ".2f")
+        marginLeftList[int(i)] = format(int(marginLeftList[int(i)]) * 10.8, ".2f")
 
 # 초기화
 top = ["top"] * imageNum
