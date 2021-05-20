@@ -4,9 +4,7 @@ import cv2, numpy as np
 
 # 이미지 개수
 parameter = str(datetime.now().year) + str(datetime.now().month) + str(datetime.now().day) + str(datetime.now().hour) + str(datetime.now().minute)
-filePath = input("이미지를 저장한 로컬 폴더 경로를 입력해주세요:")
-
-
+filePath = input("\n이미지를 저장한 로컬 폴더 경로를 입력해주세요:")
 
 def changeFileName():
     global imageNum
@@ -18,17 +16,10 @@ def changeFileName():
         new_name = os.path.join(filePath, new_name) # 경로 + 새로운 이름
         os.rename(src, new_name)
         imageNum += 1
-    
-    
-    
 
 changeFileName()
 
-
-
-
 img = cv2.imread(filePath + '\\img_1.jpg')
-print(filePath + '\\img_1.jpg')
 imageHeight, imageWidth, imageChannel = img.shape
 
 # x,y,w,h	= cv2.selectROI('img', img, False)
