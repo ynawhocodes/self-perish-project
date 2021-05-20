@@ -1,9 +1,46 @@
-print("\n----------------------------[설정]------------------------------------------\n")
+import os
+from datetime import datetime
+import cv2, numpy as np
 
-# imageName = input("\n이미지명을 입력해주세요: ")
-imageNum = int(input("\n이미지 개수를 입력하세요: "))
-imageHeight = int(input("\n이미지 공통 분할 높이를 입력하세요: "))
-parameter = input("\n파라미터 값을 입력해주세요: ")
+# 이미지 개수
+parameter = str(datetime.now().year) + str(datetime.now().month) + str(datetime.now().day) + str(datetime.now().hour) + str(datetime.now().minute)
+filePath = input("이미지를 저장한 로컬 폴더 경로를 입력해주세요:")
+
+
+
+def changeFileName():
+    global imageNum
+    imageNum = 1
+    file_names = os.listdir(filePath)
+    for name in file_names:
+        src = os.path.join(filePath, name) # 현재 이미지 경로
+        new_name = "img_" + str(imageNum) + ".jpg" # 새로운 이름
+        new_name = os.path.join(filePath, new_name) # 경로 + 새로운 이름
+        os.rename(src, new_name)
+        imageNum += 1
+    
+    
+    
+
+changeFileName()
+
+
+
+
+img = cv2.imread(filePath + '\\img_1.jpg')
+print(filePath + '\\img_1.jpg')
+imageHeight, imageWidth, imageChannel = img.shape
+
+# x,y,w,h	= cv2.selectROI('img', img, False)
+# if w and h:
+#     roi = img[y:y+h, x:x+w]  
+#     print(x, y, w, h)
+
+# cv2.waitKey(0)
+# cv2.destroyAllWindows()
+
+
+print("\n----------------------------[설정]------------------------------------------\n")
 linkImageNum = list(input("\n링크있는 이미지 번호를 입력해주세요 (ex. 3 5 11): ").split())
 folderName = input("\n폴더명을 입력해주세요: ")
 
@@ -33,7 +70,7 @@ def style(topList, marginLeftList, unit):
     for i in linkImageNum:
         print("    .n-detail-special .block" + i + " .link {top:" + topList[int(i)] + unit + "; margin-left:" + marginLeftList[int(i)] + unit + ";}")        
         
-    print("    .n-detail-special .block" +  str(imageNum - 1) + ".link{top:40%; width:100%; height:20%; margin-left:-50%;}")
+    print("    .n-detail-special .block" +  str(imageNum - 2) + ".link{top:40%; width:100%; height:20%; margin-left:-50%;}")
 
     if(isVideo == 'y'):
         print("    .video-wrap {position:absolute; left:0; top:0%; width:92%; margin-left:4%;}\n    .n-detail-special .video-wrap .video-content {position:relative; padding-top:56.25%;}\n    .n-detail-special .video-wrap .video-content iframe {position:absolute; left:0; top:0; width:100%; height:100%;}")
@@ -58,7 +95,7 @@ def mToPc(topList, marginLeftList):
 top = ["top"] * imageNum
 marginLeft = ["ml"] * imageNum
 
-def inpuPosition():
+def inputPosition():
     print("mobile버전의 링크 위치를 입력해주세요")
     for i in linkImageNum:
         print("\n>img " + i + " 번--- ")
@@ -68,33 +105,27 @@ def inpuPosition():
         ML = input("margin-left: ")
         marginLeft[int(i)] = ML
 
-inpuPosition()
+inputPosition()
 
 print("\n\n--------------------------------[결과]--------------------------------------\n\n")
 
 def blockCode():        
-    for i in range(1, imageNum + 1):
-        if i < 10:
-            if(isVideo == 'y'): # 보통 유튜브는 10 이하에 위치해 있으므로(예외 가능성 있음)
-                if str(i) in linkImageNum:                   
-                    print("<div class=\"block block0" + str(i) + "><a href=\"" + url[i] + "\" class=\"link\">링크</a><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + folderName + "/img_0" + str(i)+".jpg?" + parameter + "\" alt=\"\"></div>")             
-                else:
-                    if(str(i) != videoImageNum):
-                        print("<div class=\"block block0" + str(i) + "><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + folderName + "/img_0" + str(i) + ".jpg?" + parameter + "\" alt=\"\"></div>")
-                    else:
-                        print("<div class=\"block block0" + videoImageNum + "><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + folderName + "/img_0" + str(i)+".jpg?" + parameter + "\" alt=\"\">\n        <div class=\"video-wrap\"><div class=\"video-content\">\n            <iframe src=\"https://www.youtube.com/embed/" + videoUrl + " frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>\n        </div>\n    </div>\n</div>")                         
-
+    for i in range(1, imageNum):
+        if(isVideo == 'y'):
+            if str(i) in linkImageNum:                   
+                print("<div class=\"block block" + str(i) + "><a href=\"" + url[i] + "\" class=\"link\">링크</a><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + folderName + "/img_" + str(i)+".jpg?" + parameter + "\" alt=\"\"></div>")             
             else:
-                if str(i) in linkImageNum:
-                    print("<div class=\"block block0" + str(i) + "><a href=\"" + url[i] + "\" class=\"link\">링크</a><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + folderName + "/img_0" + str(i)+".jpg?" + parameter + "\" alt=\"\"></div>")
+                if(str(i) != videoImageNum):
+                    print("<div class=\"block block" + str(i) + "><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + folderName + "/img_" + str(i) + ".jpg?" + parameter + "\" alt=\"\"></div>")
                 else:
-                    print("<div class=\"block block0" + str(i) + "><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + folderName + "/img_0" + str(i) + ".jpg?" + parameter + "\" alt=\"\"></div>")
-                        
+                    print("<div class=\"block block" + videoImageNum + "><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + folderName + "/img_" + str(i)+".jpg?" + parameter + "\" alt=\"\">\n        <div class=\"video-wrap\"><div class=\"video-content\">\n            <iframe src=\"https://www.youtube.com/embed/" + videoUrl + " frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>\n        </div>\n    </div>\n</div>")                         
+
         else:
             if str(i) in linkImageNum:
-                print("<div class=\"block block" + str(i) + "><a href=\"" +  url[i] + "\" class=\"link\">링크</a><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + folderName + "/img_" + str(i) + ".jpg?" + parameter + "\" alt=\"\"></div>")
+                print("<div class=\"block block" + str(i) + "><a href=\"" + url[i] + "\" class=\"link\">링크</a><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + folderName + "/img_" + str(i)+".jpg?" + parameter + "\" alt=\"\"></div>")
             else:
-                print("<div class=\"block block" + str(i) + "><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + folderName + "/img_" +  str(i) + ".jpg?" + parameter + "\" alt=\"\"></div>")
+                 print("<div class=\"block block" + str(i) + "><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + folderName + "/img_" + str(i) + ".jpg?" + parameter + "\" alt=\"\"></div>")
+                        
     
 
 # pc
