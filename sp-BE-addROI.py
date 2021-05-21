@@ -22,9 +22,6 @@ changeFileName()
 img = cv2.imread(filePath + "\\img_1.jpg")
 imageHeight, imageWidth, imageChannel = img.shape
 
-
-
-
 print("\n----------------------------[설정]------------------------------------------\n")
 linkImageNum = list(input("\n링크있는 이미지 번호를 입력해주세요 (ex. 3 5 11): ").split())
 
@@ -95,10 +92,6 @@ def pcToM(pcWidthStyle, pcHeightStyle):
         pcHeightStyle[int(i)] = format(int(pcHeightStyle[int(i)]) * 100 / imageHeight, ".2f")
 
 
-
-
-
-
 print("\n\n--------------------------------[결과]--------------------------------------\n\n")
 
 def blockCode():        
@@ -116,9 +109,7 @@ def blockCode():
             if str(i) in linkImageNum:
                 print("<div class=\"block block" + str(i) + "><a href=\"" + url[i] + "\" class=\"link\">링크</a><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + folderName + "/img_" + str(i)+".jpg?" + parameter + "\" alt=\"\"></div>")
             else:
-                 print("<div class=\"block block" + str(i) + "><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + folderName + "/img_" + str(i) + ".jpg?" + parameter + "\" alt=\"\"></div>")
-                        
-    
+                 print("<div class=\"block block" + str(i) + "><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + folderName + "/img_" + str(i) + ".jpg?" + parameter + "\" alt=\"\"></div>")                     
 
 # pc
 print("\n***************PC code*******************\n")
@@ -128,7 +119,6 @@ blockCode()
 
 # mobile
 print("\n***************MOBILE mobile*******************\n")
-
 
 pcToM(marginLeft, top)
 pcToM(width, height)
