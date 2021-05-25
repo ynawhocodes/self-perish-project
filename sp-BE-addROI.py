@@ -98,18 +98,18 @@ def blockCode():
     for i in range(1, imageNum):
         if(isVideo == 'y'):
             if str(i) in linkImageNum:                   
-                print("<div class=\"block block" + str(i) + "><a href=\"" + url[i] + "\" class=\"link\">링크</a><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + folderName + "/img_" + str(i)+".jpg?" + parameter + "\" alt=\"\"></div>")             
+                print("<div class=\"block block" + str(i) + "\"><a href=\"" + url[i] + "\" class=\"link\">링크</a><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + folderName + "/img_" + str(i)+".jpg?" + parameter + "\" alt=\"\"></div>")             
             else:
                 if(str(i) != videoImageNum):
-                    print("<div class=\"block block" + str(i) + "><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + folderName + "/img_" + str(i) + ".jpg?" + parameter + "\" alt=\"\"></div>")
+                    print("<div class=\"block block" + str(i) + "\"><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + folderName + "/img_" + str(i) + ".jpg?" + parameter + "\" alt=\"\"></div>")
                 else:
                     print("<div class=\"block block" + videoImageNum + "><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + folderName + "/img_" + str(i)+".jpg?" + parameter + "\" alt=\"\">\n        <div class=\"video-wrap\"><div class=\"video-content\">\n            <iframe src=\"https://www.youtube.com/embed/" + videoUrl + " frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>\n        </div>\n    </div>\n</div>")                         
 
         else:
             if str(i) in linkImageNum:
-                print("<div class=\"block block" + str(i) + "><a href=\"" + url[i] + "\" class=\"link\">링크</a><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + folderName + "/img_" + str(i)+".jpg?" + parameter + "\" alt=\"\"></div>")
+                print("<div class=\"block block" + str(i) + "\"><a href=\"" + url[i] + "\" class=\"link\">링크</a><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + folderName + "/img_" + str(i)+".jpg?" + parameter + "\" alt=\"\"></div>")
             else:
-                 print("<div class=\"block block" + str(i) + "><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + folderName + "/img_" + str(i) + ".jpg?" + parameter + "\" alt=\"\"></div>")                     
+                 print("<div class=\"block block" + str(i) + "\"><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + folderName + "/img_" + str(i) + ".jpg?" + parameter + "\" alt=\"\"></div>")                     
 
 # pc
 print("\n***************PC code*******************\n")
