@@ -45,7 +45,7 @@ def inputUrl():
 
 window = Tk()
 window.title("special issue")
-window.geometry("270x118+1200+500")
+window.geometry("320x118+1200+500")
 window.resizable(False, False)
 
 folder_path = Label(window , text="이미지 경로")
@@ -58,25 +58,26 @@ link_img_num.grid(row=1, column=0)
 bg_color.grid(row=2, column=0)
 cyberduck_path.grid(row=3, column=0)
 
-folder_path_btn = Button(window, text="찾아보기", command=openFolder, width=17)
+folder_path_btn = Button(window, text="찾아보기", command=openFolder, width=20)
 e1 = Entry(window)
 e2 = Entry(window)
 e3 = Entry(window)
 
-folder_path_btn.grid(row=0, column=1, columnspan=5)
-e1.grid(row=1, column=1, columnspan=5)
-e2.grid(row=2, column=1, columnspan=5)
-e3.grid(row=3, column=1, columnspan=5)
+folder_path_btn.grid(row=0, column=1, columnspan=6)
+e1.grid(row=1, column=1, columnspan=6)
+e2.grid(row=2, column=1, columnspan=6)
+e3.grid(row=3, column=1, columnspan=6)
 
 chk_state=BooleanVar()
 chk_state.set
 video_check = Checkbutton(window, text="video", var=chk_state,)
+url_position_btn = Button(window, text="url위치", command=inputUrl)
 url_btn = Button(window, text="url입력", command=inputUrl)
 b1 = Button(window, text="미리보기", command=process)
 b2 = Button(window, text="저장")
 
 video_check.grid(row=5, column=0)
-b1.grid(row=5, column=1)
+url_position_btn.grid(row=5, column=1)
 url_btn.grid(row=5, column=2)
 b1.grid(row=5, column=3)
 b2.grid(row=5, column=4)
