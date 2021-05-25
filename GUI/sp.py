@@ -11,15 +11,36 @@ def openFolder():
     print(window.dirName)
 
 def inputUrl():
-    url_window = Tk().Toplevel(window)
-
-    url_window = Tk()
-    url_window.title("special issue")
-    url_window.geometry("70x118+1200+500")
+    url_window = Toplevel(window)
+    url_window.title("input URL")
     url_window.resizable(False, False)
+      
+    #오로지 test. main과 logic 같지 않음
+    urlLabel = [""] * 5 
+    urlEntry = [""] * 5 
 
-    url_window.mainloop()
-              
+    for i in range(0, 5):
+        urlLabel = Label(url_window , text="url " + str(i)+ ": ")
+        urlLabel.grid(row=i, column=0)
+        urlEntry = Entry(url_window, width=64)
+        urlEntry.grid(row=i, column=1)
+
+
+    video_num = Label(url_window , text="비디오 삽입된 이미지 번호")
+    video_url = Label(url_window , text="비디오 url")
+
+    e1 = Entry(url_window, width=64)
+    e2 = Entry(url_window, width=64)
+
+    video_num.grid(row=6, column=0)
+    video_url.grid(row=7, column=0)
+
+    e1.grid(row=6, column=1)
+    e2.grid(row=7, column=1)
+
+    b2 = Button(url_window, text="저장")
+    b2.grid(row=8, column=0, columnspan=2)
+
 
 
 window = Tk()
