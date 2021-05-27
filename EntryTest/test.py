@@ -9,14 +9,15 @@ linkImageNum = ["2", "4" , "5"]
 
 def saveUrl():
     cnt = 0
-    for i in linkImageNum:   
+    for i in linkImageNum:  
+        print(entries[cnt].get()) 
         url[int(i)] = entries[cnt].get()
         print(url)
         cnt += 1
 
 entries = []
 
-for i in range(0, 3):
+for i in linkImageNum:
     urlLabel =  Label(url_window ,text="url " + str(i)+ ": ")
     urlLabel.grid(row=i, column=0)
     en = Entry(url_window, width=64)
