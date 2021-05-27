@@ -4,18 +4,19 @@ from tkinter import *
 url_window = Tk()
 url_window.title("test")
 
-url = ["url"] * 5
-
-
+url = ["url"] * 10
+linkImageNum = ["2", "4" , "5"]
 
 def saveUrl():
-    for i in entries:   
-        url.append(i.get())
+    cnt = 0
+    for i in linkImageNum:   
+        url[int(i)] = entries[cnt].get()
         print(url)
+        cnt += 1
 
-entries = [] * 5
+entries = [] * 3
 
-for i in range(1,5):
+for i in range(0, 3):
     urlLabel =  Label(url_window ,text="url " + str(i)+ ": ")
     urlLabel.grid(row=i, column=0)
     en = Entry(url_window, width=64)
