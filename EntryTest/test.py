@@ -14,7 +14,7 @@ def saveUrl():
         print(url)
         cnt += 1
 
-entries = [] * 3
+entries = []
 
 for i in range(0, 3):
     urlLabel =  Label(url_window ,text="url " + str(i)+ ": ")
