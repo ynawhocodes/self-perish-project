@@ -44,11 +44,14 @@ def saveVideoUrl(i, URL):
     url[int(i)] = URL
     print(url[int(i)])
 
-def saveUrl(urlEntryList):
-    for i in linkImageNum:   
-        url[int(i)] = urlEntryList[int(i)].get()
-        print(url[int(i)])
-    
+urlEntryList = []
+
+def saveUrl():
+    i = 0
+    for j in linkImageNum:    
+        url[int(j)] = urlEntryList[i].get()
+        i += 1
+
     url_window.destroy()
        
 def inputUrl():
@@ -57,17 +60,6 @@ def inputUrl():
     url_window.title("input URL")
     url_window.resizable(False, False)
       
-    for i in linkImageNum:     
-        urlLabelList =  [Label(url_window , text="url")] * imageNum
-        urlLabelList[int(i)] = Label(url_window , text="url " + str(i)+ ": ")
-        urlLabelList[int(i)].grid(row=i, column=0)
-        urlEntryList = [Entry(url_window, width=64)] * imageNum
-        urlEntryList[int(i)].grid(row=i, column=1)
-
-    save_btn = Button(url_window, text="저장", command=lambda: saveUrl(urlEntryList))
-    save_btn.grid(row=19, column=2)
-       
-
     if(chk_state.get() == True):
         video_num = Label(url_window , text="비디오 삽입된 이미지 번호")
         video_url = Label(url_window , text="비디오 url")
@@ -76,16 +68,27 @@ def inputUrl():
         video_num_entry = Entry(url_window, width=64)
         video_url_entry = Entry(url_window, width=64)
 
-        video_num.grid(row=20, column=0)
-        video_url.grid(row=21, column=0)
+        video_num.grid(row=0, column=0)
+        video_url.grid(row=1, column=0)
 
-        video_num_entry.grid(row=20, column=1)
-        video_url_entry.grid(row=21, column=1)
+        video_num_entry.grid(row=0, column=1)
+        video_url_entry.grid(row=1, column=1)
 
+        global videoLinkNum 
+        videoLinkNum = video_num_entry.get()
         #비디오가 있는 이미지에는 이동url이 없을 것이므로 같은 리스트를 이용
-
         save_btn = Button(url_window, text="저장", command=lambda: saveVideoUrl(video_num_entry.get(), video_url_entry.get()))
-        save_btn.grid(row=21, column=2)
+        save_btn.grid(row=2, column=2)
+
+    for i in linkImageNum:     
+        urlLabel = Label(url_window , text="url" + str(i)+ ": ")
+        urlLabel.grid(row=i, column=0)
+        urlEntry = Entry(url_window, width=64)
+        urlEntry.grid(row=i, column=1)
+        urlEntryList.append(urlEntry)   
+
+    save_btn = Button(url_window, text="저장", command=lambda: saveUrl())
+    save_btn.grid(row=19, column=2)
    
 
 
@@ -235,10 +238,10 @@ def blockCode(outfile):
             if str(i) in linkImageNum:                   
                 outfile.write("<div class=\"block block" + str(i) + "\"><a href=\"" + url[i] + "\" class=\"link\">link</a><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + cyberduck_path_entry.get() + "/img_" + str(i)+".jpg?" + parameter + "\" alt=\"\"></div>\n")             
             else:
-                if(str(i) != video_num_entry.get()):
+                if(str(i) != videoLinkNum):
                     outfile.write("<div class=\"block block" + str(i) + "\"><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + cyberduck_path_entry.get() + "/img_" + str(i) + ".jpg?" + parameter + "\" alt=\"\"></div>\n")
                 else:
-                    outfile.write("<div class=\"block block" + video_num_entry.get() + "\"><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + cyberduck_path_entry.get() + "/img_" + str(i)+".jpg?" + parameter + "\" alt=\"\">\n        <div class=\"video-wrap\"><div class=\"video-content\">\n            <iframe src=\"https://www.youtube.com/embed/" + video_url_entry.get() + " frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>\n        </div>\n    </div>\n</div>\n")                         
+                    outfile.write("<div class=\"block block" + videoLinkNum + "\"><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + cyberduck_path_entry.get() + "/img_" + str(i)+".jpg?" + parameter + "\" alt=\"\">\n        <div class=\"video-wrap\"><div class=\"video-content\">\n            <iframe src=\"https://www.youtube.com/embed/" + video_url_entry.get() + " frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>\n        </div>\n    </div>\n</div>\n")                         
 
         else:
             if str(i) in linkImageNum:
