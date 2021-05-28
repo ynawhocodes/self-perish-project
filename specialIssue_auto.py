@@ -40,11 +40,16 @@ def openFolder():
     global imageHeight, imageWidth, imageChannel
     imageHeight, imageWidth, imageChannel = img.shape
 
+
+videoInfo = []
+
 def saveVideoUrl(i, URL):
     url[int(i)] = URL
-    print(url[int(i)])
+    videoInfo.insert(0, i)
+    videoInfo.insert(1, URL)
 
 urlEntryList = []
+videoEntryList = []
 
 def saveUrl():
     i = 0
@@ -54,13 +59,16 @@ def saveUrl():
 
     url_window.destroy()
        
+
 def inputUrl():
     global url_window
     url_window = Toplevel(window)
     url_window.title("input URL")
     url_window.resizable(False, False)
-      
-    if(chk_state.get() == True):
+    
+    global isVideo
+    isVideo = chk_state.get()
+    if(isVideo == True):
         video_num = Label(url_window , text="비디오 삽입된 이미지 번호")
         video_url = Label(url_window , text="비디오 url")
 
@@ -74,9 +82,7 @@ def inputUrl():
         video_num_entry.grid(row=0, column=1)
         video_url_entry.grid(row=1, column=1)
 
-        global videoLinkNum 
-        videoLinkNum = video_num_entry.get()
-        #비디오가 있는 이미지에는 이동url이 없을 것이므로 같은 리스트를 이용
+        # 비디오가 있는 이미지에는 이동url이 없을 것이므로 같은 리스트를 이용
         save_btn = Button(url_window, text="저장", command=lambda: saveVideoUrl(video_num_entry.get(), video_url_entry.get()))
         save_btn.grid(row=2, column=2)
 
@@ -219,7 +225,7 @@ def style(topList, marginLeftList, widthList, heightList, unit, outfile):
     for i in linkImageNum:
         outfile.write("    .n-detail-special .block" + str(i) + " .link {top:" + topList[int(i)] + unit + "; margin-left:" + marginLeftList[int(i)] + unit + "; width: " + widthList[int(i)] + unit  + "; height: " + heightList[int(i)] + unit + ";}\n")        
         
-    if(chk_state.get() == True):
+    if(isVideo == True):
         outfile.write("    .video-wrap {position:absolute; left:0; top:0%; width:92%; margin-left:4%;}\n    .n-detail-special .video-wrap .video-content {position:relative; padding-top:56.25%;}\n    .n-detail-special .video-wrap .video-content iframe {position:absolute; left:0; top:0; width:100%; height:100%;}\n")
 
     outfile.write("</style>\n")
@@ -234,21 +240,21 @@ def pcToM(pcWidthStyle, pcHeightStyle):
 # 결과 코드
 def blockCode(outfile):        
     for i in range(1, imageNum):
-        if(chk_state.get() == True):
-            if str(i) in linkImageNum:                   
+        if(isVideo == True):
+            if str(i) in linkImageNum:            
                 outfile.write("<div class=\"block block" + str(i) + "\"><a href=\"" + url[i] + "\" class=\"link\">link</a><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + cyberduck_path_entry.get() + "/img_" + str(i)+".jpg?" + parameter + "\" alt=\"\"></div>\n")             
             else:
-                if(str(i) != videoLinkNum):
+                if(str(i) !=  videoInfo[0]):   
                     outfile.write("<div class=\"block block" + str(i) + "\"><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + cyberduck_path_entry.get() + "/img_" + str(i) + ".jpg?" + parameter + "\" alt=\"\"></div>\n")
-                else:
-                    outfile.write("<div class=\"block block" + videoLinkNum + "\"><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + cyberduck_path_entry.get() + "/img_" + str(i)+".jpg?" + parameter + "\" alt=\"\">\n        <div class=\"video-wrap\"><div class=\"video-content\">\n            <iframe src=\"https://www.youtube.com/embed/" + video_url_entry.get() + " frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>\n        </div>\n    </div>\n</div>\n")                         
+                else:  
+                    outfile.write("<div class=\"block block" +  videoInfo[0] + "\">\n<img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + cyberduck_path_entry.get() + "/img_" + str(i)+".jpg?" + parameter + "\" alt=\"\">\n    <div class=\"video-wrap\">\n        <div class=\"video-content\">\n            <iframe src=\"https://www.youtube.com/embed/" + videoInfo[1] + "\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>\n        </div>\n    </div>\n</div>\n")                         
 
         else:
-            if str(i) in linkImageNum:
+            if str(i) in linkImageNum:   
                 outfile.write("<div class=\"block block" + str(i) + "\"><a href=\"" + url[i] + "\" class=\"link\">link</a><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + cyberduck_path_entry.get() + "/img_" + str(i)+".jpg?" + parameter + "\" alt=\"\"></div>\n")
-            else:
+            else:   
                 outfile.write("<div class=\"block block" + str(i) + "\"><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + cyberduck_path_entry.get() + "/img_" + str(i) + ".jpg?" + parameter + "\" alt=\"\"></div>\n")                     
-
+    print("---------------blockCode끝---------------")
 
 window.mainloop()
 
