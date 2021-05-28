@@ -226,8 +226,10 @@ def style(topList, marginLeftList, widthList, heightList, unit, outfile):
         outfile.write("    .n-detail-special .block" + str(i) + " .link {top:" + topList[int(i)] + unit + "; margin-left:" + marginLeftList[int(i)] + unit + "; width: " + widthList[int(i)] + unit  + "; height: " + heightList[int(i)] + unit + ";}\n")        
         
     if(isVideo == True):
-        outfile.write("    .video-wrap {position:absolute; left:0; top:0%; width:92%; margin-left:4%;}\n    .n-detail-special .video-wrap .video-content {position:relative; padding-top:56.25%;}\n    .n-detail-special .video-wrap .video-content iframe {position:absolute; left:0; top:0; width:100%; height:100%;}\n")
-
+        if(unit == "%"):
+            outfile.write("    .video-wrap {position:absolute; left:0; top:0%; width:92%; margin-left:4%;}\n    .n-detail-special .video-wrap .video-content {position:relative; padding-top:56.25%;}\n    .n-detail-special .video-wrap .video-content iframe {position:absolute; left:0; top:0; width:100%; height:100%;}\n")
+        else:
+            outfile.write("    .n-detail-special .video-wrap {position:absolute;left:50%;top:0%;width:1013px;height:570px;margin-left:-507px;}\n    .n-detail-special .video-wrap iframe {position:absolute;left:0;top:0;width:100%;height:100%;}\n")
     outfile.write("</style>\n")
 
 
