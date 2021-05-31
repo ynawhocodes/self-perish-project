@@ -94,7 +94,7 @@ def inputUrl():
         urlEntryList.append(urlEntry)   
 
     save_btn = Button(url_window, text="저장", command=lambda: saveUrl())
-    save_btn.grid(row=19, column=2)
+    save_btn.grid(row=100, column=2)
    
 
 
