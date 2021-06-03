@@ -36,7 +36,7 @@ def openFolder():
     filePath = str(window.dirName)
     changeFileName()
 
-    img = cv2.imread(filePath + "\\img_1.jpg")
+    img = cv2.imread(filePath + "\\img_9.jpg")
     global imageHeight, imageWidth, imageChannel
     imageHeight, imageWidth, imageChannel = img.shape
 
