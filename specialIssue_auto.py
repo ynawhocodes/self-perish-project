@@ -36,7 +36,7 @@ def openFolder():
     filePath = str(window.dirName)
     changeFileName()
 
-    img = cv2.imread(filePath + "\\img_9.jpg")
+    img = cv2.imread(filePath + "\\img_5.jpg")
     global imageHeight, imageWidth, imageChannel
     imageHeight, imageWidth, imageChannel = img.shape
 
@@ -177,9 +177,9 @@ preview_check = Label(window , text="미리보기")
 
 # label grid
 folder_path.grid(row=0, column=0)
-link_img_num.grid(row=1, column=0)
+link_img_num.grid(row=3, column=0)
 bg_color.grid(row=2, column=0)
-cyberduck_path.grid(row=3, column=0)
+cyberduck_path.grid(row=1, column=0)
 preview_check.grid(row=6, column=0)
 
 
