@@ -11,7 +11,7 @@ def changeFileName():
     file_names = os.listdir(filePath)
     for name in file_names:
         src = os.path.join(filePath, name) # 현재 이미지 경로
-        new_name = "img_" + str(imageNum) + ".jpg" # 새로운 이름
+        new_name = "image_" + str(imageNum) + ".jpg" # 새로운 이름
         new_name = os.path.join(filePath, new_name) # 경로 + 새로운 이름
         os.rename(src, new_name)
         imageNum += 1
@@ -35,11 +35,6 @@ def openFolder():
     global filePath
     filePath = str(window.dirName)
     changeFileName()
-
-    img = cv2.imread(filePath + "\\img_5.jpg")
-    global imageHeight, imageWidth, imageChannel
-    imageHeight, imageWidth, imageChannel = img.shape
-
 
 videoInfo = []
 
@@ -105,8 +100,8 @@ def setPosition():
     global linkImageNum
     linkImageNum = list(link_img_num_entry.get().split())
     for i in linkImageNum:
-        img = cv2.imread(filePath + "\\img_" + i + ".jpg")
-        x,y,w,h	= cv2.selectROI('img', img, False)
+        img = cv2.imread(filePath + "\\image_" + i + ".jpg")
+        x,y,w,h	= cv2.selectROI('image', img, False)
         if w and h:
             roi = img[y:y+h, x:x+w]  
             top[int(i)] = str(y)
@@ -235,6 +230,10 @@ def style(topList, marginLeftList, widthList, heightList, unit, outfile):
 
 # pc to mb
 def pcToM(pcWidthStyle, pcHeightStyle):
+    img = cv2.imread(filePath + "\\image_" + linkImageNum[0] + ".jpg")
+    global imageHeight, imageWidth, imageChannel
+    imageHeight, imageWidth, imageChannel = img.shape
+
     for i in linkImageNum:           
         pcWidthStyle[int(i)] = format(int(pcWidthStyle[int(i)]) / 10.8, ".2f")
         pcHeightStyle[int(i)] = format(int(pcHeightStyle[int(i)]) * 100 / imageHeight, ".2f")
@@ -244,18 +243,18 @@ def blockCode(outfile):
     for i in range(1, imageNum):
         if(isVideo == True):
             if str(i) in linkImageNum:            
-                outfile.write("<div class=\"block block" + str(i) + "\"><a href=\"" + url[i] + "\" class=\"link\">link</a><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + cyberduck_path_entry.get() + "/img_" + str(i)+".jpg?" + parameter + "\" alt=\"\"></div>\n")             
+                outfile.write("<div class=\"block block" + str(i) + "\"><a href=\"" + url[i] + "\" class=\"link\">link</a><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + cyberduck_path_entry.get() + "/image_" + str(i)+".jpg?" + parameter + "\" alt=\"\"></div>\n")             
             else:
                 if(str(i) !=  videoInfo[0]):   
-                    outfile.write("<div class=\"block block" + str(i) + "\"><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + cyberduck_path_entry.get() + "/img_" + str(i) + ".jpg?" + parameter + "\" alt=\"\"></div>\n")
+                    outfile.write("<div class=\"block block" + str(i) + "\"><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + cyberduck_path_entry.get() + "/image_" + str(i) + ".jpg?" + parameter + "\" alt=\"\"></div>\n")
                 else:  
-                    outfile.write("<div class=\"block block" +  videoInfo[0] + "\">\n<img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + cyberduck_path_entry.get() + "/img_" + str(i)+".jpg?" + parameter + "\" alt=\"\">\n    <div class=\"video-wrap\">\n        <div class=\"video-content\">\n            <iframe src=\"https://www.youtube.com/embed/" + videoInfo[1] + "\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>\n        </div>\n    </div>\n</div>\n")                         
+                    outfile.write("<div class=\"block block" +  videoInfo[0] + "\">\n<img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + cyberduck_path_entry.get() + "/image_" + str(i)+".jpg?" + parameter + "\" alt=\"\">\n    <div class=\"video-wrap\">\n        <div class=\"video-content\">\n            <iframe src=\"https://www.youtube.com/embed/" + videoInfo[1] + "\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>\n        </div>\n    </div>\n</div>\n")                         
 
         else:
             if str(i) in linkImageNum:   
-                outfile.write("<div class=\"block block" + str(i) + "\"><a href=\"" + url[i] + "\" class=\"link\">link</a><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + cyberduck_path_entry.get() + "/img_" + str(i)+".jpg?" + parameter + "\" alt=\"\"></div>\n")
+                outfile.write("<div class=\"block block" + str(i) + "\"><a href=\"" + url[i] + "\" class=\"link\">link</a><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + cyberduck_path_entry.get() + "/image_" + str(i)+".jpg?" + parameter + "\" alt=\"\"></div>\n")
             else:   
-                outfile.write("<div class=\"block block" + str(i) + "\"><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + cyberduck_path_entry.get() + "/img_" + str(i) + ".jpg?" + parameter + "\" alt=\"\"></div>\n")                     
+                outfile.write("<div class=\"block block" + str(i) + "\"><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + cyberduck_path_entry.get() + "/image_" + str(i) + ".jpg?" + parameter + "\" alt=\"\"></div>\n")                     
     print("---------------blockCode끝---------------")
 
 window.mainloop()
