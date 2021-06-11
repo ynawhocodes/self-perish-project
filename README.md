@@ -21,5 +21,5 @@
 **2021.06.11**
 - [04. 이벤트 영역 코드 구분](https://github.com/ynawhocodes/self-perish-project/commit/743e138af0d9a00f10b2875ee9c3cd6ab427c7c4)
 - [05. html 파일 상위 디렉토리에 저장되도록 변경](https://github.com/ynawhocodes/self-perish-project/commit/a66c35b3cf30e6c5d5c924ecbbb2a469ff41d8cb)
-- [06. 이미지별로 높이 구하도록 개선](): 30000px 대비, 자유자재로 이미지 분할을 위해
+- [06. 이미지별로 높이 구하도록 개선](https://github.com/ynawhocodes/self-perish-project/commit/ab025988c773e7c2e24889b6f9b52698c1239bf1): 30000px 대비, 자유자재로 이미지 분할을 위해
 
