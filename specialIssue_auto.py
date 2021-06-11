@@ -230,11 +230,11 @@ def style(topList, marginLeftList, widthList, heightList, unit, outfile):
 
 # pc to mb
 def pcToM(pcWidthStyle, pcHeightStyle):
-    img = cv2.imread(filePath + "\\image_" + linkImageNum[0] + ".jpg")
-    global imageHeight, imageWidth, imageChannel
-    imageHeight, imageWidth, imageChannel = img.shape
+    for i in linkImageNum:
+        img = cv2.imread(filePath + "\\image_" + i + ".jpg")
 
-    for i in linkImageNum:           
+        imageHeight, imageWidth, imageChannel = img.shape
+       
         pcWidthStyle[int(i)] = format(int(pcWidthStyle[int(i)]) / 10.8, ".2f")
         pcHeightStyle[int(i)] = format(int(pcHeightStyle[int(i)]) * 100 / imageHeight, ".2f")
 
