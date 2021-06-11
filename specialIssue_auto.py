@@ -240,7 +240,7 @@ def pcToM(pcWidthStyle, pcHeightStyle):
 
 # 결과 코드
 def blockCode(outfile):        
-    for i in range(1, imageNum):
+    for i in range(1, imageNum - 1):
         if(isVideo == True):
             if str(i) in linkImageNum:            
                 outfile.write("<div class=\"block block" + str(i) + "\"><a href=\"" + url[i] + "\" class=\"link\">link</a><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + cyberduck_path_entry.get() + "/image_" + str(i)+".jpg?" + parameter + "\" alt=\"\"></div>\n")             
@@ -255,9 +255,24 @@ def blockCode(outfile):
                 outfile.write("<div class=\"block block" + str(i) + "\"><a href=\"" + url[i] + "\" class=\"link\">link</a><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + cyberduck_path_entry.get() + "/image_" + str(i)+".jpg?" + parameter + "\" alt=\"\"></div>\n")
             else:   
                 outfile.write("<div class=\"block block" + str(i) + "\"><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + cyberduck_path_entry.get() + "/image_" + str(i) + ".jpg?" + parameter + "\" alt=\"\"></div>\n")                     
-    print("---------------blockCode끝---------------")
+   
+   
+    outfile.write("<!-- event -->\n<div class=\"block block" + str(imageNum - 1) + "\"><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + cyberduck_path_entry.get() + "/image_" + str(imageNum - 1) + ".jpg?" + parameter + "\" alt=\"\"></div>\n<!-- //event -->")
 
 window.mainloop()
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
