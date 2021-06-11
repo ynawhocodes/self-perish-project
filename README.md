@@ -13,7 +13,7 @@
 
 **2021.06.10**
 - [01. 이미지 파일명 img로 저장할 수 있게 변경](https://github.com/ynawhocodes/self-perish-project/commit/92e561607eea7833bb82b38d2eea80e43fde880e)
-- [02. 링크 들어가는 이미지 높이 측정방법 변경](https://github.com/ynawhocodes/self-perish-project/commit/9b731c910a5ade57b7c6c4a3cb440a971c4b59fc)
+- [02. 링크 들어가는 이미지 높이 측정방법 변경](https://github.com/ynawhocodes/self-perish-project/commit/92e561607eea7833bb82b38d2eea80e43fde880e): 원래는 폴더 열 때 첫번쨰 이미지 높이 크기 구했는데 url 위치 입력할 때 url있는 이미지의 높이 크기 구하는 걸로 
 - [03. label 과 entry 위치 변경]( https://github.com/ynawhocodes/self-perish-project/commit/f63d572bae7e4311aebce5b098bbc97eab245584)
 
 **2021.06.11**
