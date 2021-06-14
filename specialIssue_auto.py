@@ -126,7 +126,7 @@ def savePC():
     style(top, marginLeft, width, height, "px", outfile)
     blockCode(outfile)
 
-    outfile.write("</div>\n</body>\n</html>")
+    outfile.write("\n</div>\n</body>\n</html>")
     outfile.close()
 
 def saveMB():
@@ -143,7 +143,7 @@ def saveMB():
     style(top, marginLeft, width, height, "%", outfile)
     blockCode(outfile)
 
-    outfile.write("</div>\n</body>\n</html>")
+    outfile.write("\n</div>\n</body>\n</html>")
     outfile.close()
 
 def preview():
@@ -257,7 +257,7 @@ def blockCode(outfile):
                 outfile.write("<div class=\"block block" + str(i) + "\"><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + cyberduck_path_entry.get() + "/image_" + str(i) + ".jpg?" + parameter + "\" alt=\"\"></div>\n")                     
    
    
-    outfile.write("<!-- event -->\n<div class=\"block block" + str(imageNum - 1) + "\"><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + cyberduck_path_entry.get() + "/image_" + str(imageNum - 1) + ".jpg?" + parameter + "\" alt=\"\"></div>\n<!-- //event -->")
+    outfile.write("\n<!-- event -->\n<div class=\"block block" + str(imageNum - 1) + "\"><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + cyberduck_path_entry.get() + "/image_" + str(imageNum - 1) + ".jpg?" + parameter + "\" alt=\"\"></div>\n<!-- //event -->")
 
 window.mainloop()
 
