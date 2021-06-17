@@ -1,4 +1,4 @@
-# self-perish-project
+# special issue
 
 #### 개요
 
