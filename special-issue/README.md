@@ -9,13 +9,25 @@
 오로지 분할된 이미지
 
 **1. 동영상이 없는 경우**
-[1](https://github.com/ynawhocodes/self-perish-project/blob/master/special-issue/src/gif/2x/gif_01.gif)
+<img src="./src/gif/2x/gif_01.gif" style="width: 50px">
 
-[2](https://github.com/ynawhocodes/self-perish-project/blob/master/special-issue/src/gif/2x/gif_02.gif)
+<img src="./src/gif/2x/gif_02.gif">
+
+<img src="./src/gif/2x/gif_03.gif">
+
+<img src="./src/gif/2x/gif_04.gif">
+
+<img src="./src/gif/2x/gif_05.gif">
+
+<img src="./src/gif/2x/gif_06.gif">
+
+<img src="./src/gif/2x/gif_07.gif">
+
+<img src="./src/gif/2x/gif_08.gif">
 
 **2. 동영상이 있는 경우**
 
-
+<img src="./video-src/gif/2x/1.gif">
 
 #### 성능 개선
 
