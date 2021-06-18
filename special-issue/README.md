@@ -5,7 +5,15 @@
 
 
 #### 작동 영상
+**준비사항**
+오로지 분할된 이미지
 
+**1. 동영상이 없는 경우**
+[1](https://github.com/ynawhocodes/self-perish-project/blob/master/special-issue/src/gif/2x/gif_01.gif)
+
+[2](https://github.com/ynawhocodes/self-perish-project/blob/master/special-issue/src/gif/2x/gif_02.gif)
+
+**2. 동영상이 있는 경우**
 
 
 
