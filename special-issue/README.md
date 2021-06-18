@@ -8,26 +8,26 @@
 **준비사항**
 오로지 분할된 이미지
 
-**1. 동영상이 없는 경우**
-<img src="./src/gif/2x/gif_01.gif" style="width: 50px">
+**1. 동영상이 없는 경우**    
+<img src="./src/gif/2x/gif_01.gif" width="700">
 
-<img src="./src/gif/2x/gif_02.gif">
+<img src="./src/gif/2x/gif_02.gif" width="700">
 
-<img src="./src/gif/2x/gif_03.gif">
+<img src="./src/gif/2x/gif_03.gif" width="700">
 
-<img src="./src/gif/2x/gif_04.gif">
+<img src="./src/gif/2x/gif_04.gif" width="700">
 
-<img src="./src/gif/2x/gif_05.gif">
+<img src="./src/gif/2x/gif_05.gif" width="700">
 
-<img src="./src/gif/2x/gif_06.gif">
+<img src="./src/gif/2x/gif_06.gif" width="700">
 
-<img src="./src/gif/2x/gif_07.gif">
+<img src="./src/gif/2x/gif_07.gif" width="700">
 
-<img src="./src/gif/2x/gif_08.gif">
+<img src="./src/gif/2x/gif_08.gif" width="700">
 
 **2. 동영상이 있는 경우**
 
-<img src="./video-src/gif/2x/1.gif">
+<img src="./video-src/gif/2x/1.gif" width="700">
 
 #### 성능 개선
 
