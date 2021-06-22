@@ -29,6 +29,8 @@
 
 <img src="./video-src/gif/2x/1.gif" width="700">
 
+<img src="./video-src/gif/2x/2.gif" width="700">
+
 #### 성능 개선
 
 **2021.06.10**
