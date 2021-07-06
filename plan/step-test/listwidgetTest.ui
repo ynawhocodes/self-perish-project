@@ -23,10 +23,10 @@
     </rect>
    </property>
    <property name="dragDropMode">
-    <enum>QAbstractItemView::NoDragDrop</enum>
+    <enum>QAbstractItemView::DragDrop</enum>
    </property>
    <property name="selectionMode">
-    <enum>QAbstractItemView::MultiSelection</enum>
+    <enum>QAbstractItemView::SingleSelection</enum>
    </property>
    <property name="wordWrap">
     <bool>false</bool>
