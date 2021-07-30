@@ -159,7 +159,7 @@ def previewMB():
 
 window = Tk()
 window.title("special issue")
-window.geometry("279x144+1200+500")
+# window.geometry("279x144+1200+500")
 window.resizable(False, False)
 
 
