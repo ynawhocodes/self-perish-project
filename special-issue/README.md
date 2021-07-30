@@ -53,3 +53,5 @@
 - [05. html 파일 상위 디렉토리에 저장되도록 변경](https://github.com/ynawhocodes/self-perish-project/commit/a66c35b3cf30e6c5d5c924ecbbb2a469ff41d8cb)
 - [06. 이미지별로 높이 구하도록 개선](https://github.com/ynawhocodes/self-perish-project/commit/ab025988c773e7c2e24889b6f9b52698c1239bf1): 30000px 대비, 자유자재로 이미지 분할을 위해
 
+**2021.07.30**  
+- [07. Mac, Window OS 환경에 맞는 유동적인 사이즈로 변경](https://github.com/ynawhocodes/self-perish-project/commit/e038cced6eca03783dc95d7b3552cc336000b0c3#diff-cd574a4dd7cb32d211de888a2f0055fcc1a55aacfc92d042587480ab2fddee4e)
