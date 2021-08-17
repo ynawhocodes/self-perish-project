@@ -6,6 +6,8 @@ from tkinter import ttk
 import os
 from datetime import datetime
 import cv2, numpy as np
+import sys
+import subprocess # 파일 open
 
 def changeFileName():
     global imageNum
@@ -102,7 +104,13 @@ def setPosition():
     global linkImageNum
     linkImageNum = list(link_img_num_entry.get().split())
     for i in linkImageNum:
-        img = cv2.imread(filePath + "\\image_" + i + ".jpg")
+        img = cv2.imread(filePath + "/image_" + i + ".jpg")
+
+        # 예외처리 추가
+        if img is None:
+            print('이미지를 불러오는데 실패하였습니다. 다시 한 번 시도해주세요.')
+            sys.exit()
+
         x,y,w,h	= cv2.selectROI('image', img, False)
         if w and h:
             roi = img[y:y+h, x:x+w]  
@@ -119,7 +127,7 @@ def saveFile():
     saveMB()
 
 def savePC():
-    outfile = open(filePath[:-7] + "\\sp.html", "w")
+    outfile = open(filePath[:-7] + "/sp.html", "w")
     # 전체 틀
     outfile.write("<!DOCTYPE html>\n<html lang=\"ko\">\n<head>\n    <link type=\"text/css\" rel=\"stylesheet\" href=\"https://image.msscdn.net/ui/utility/event/css/common.css?202005181853\">\n    <style>* {margin:0;padding:0;} .link{background-color:rgba(212,5,5,.5)}</style>\n    <title>special issue</title>\n</head>\n<body>\n")
     outfile.write("<div class=\"n-detail-special\">\n")
@@ -132,7 +140,7 @@ def savePC():
     outfile.close()
 
 def saveMB():
-    outfile = open(filePath[:-7]  + "\\sp-m.html", "w")
+    outfile = open(filePath[:-7]  + "/sp-m.html", "w")
         
     pcToM(marginLeft, top)
     pcToM(width, height)
@@ -149,17 +157,16 @@ def saveMB():
     outfile.close()
 
 def preview():
-    os.startfile(filePath[:-7])
+    subprocess.call(['open', (filePath[:-7])])
 
 def previewPC():
-    os.startfile(filePath[:-7] + "\\sp.html")
+    subprocess.call(['open', (filePath[:-7] + "/sp.html")])
 
 def previewMB():
-    os.startfile(filePath[:-7] + "\\sp-m.html")
+    subprocess.call(['open', (filePath[:-7] + "/sp-m.html")])
 
 window = Tk()
 window.title("special issue")
-# window.geometry("279x144+1200+500")
 window.resizable(False, False)
 
 
@@ -233,7 +240,7 @@ def style(topList, marginLeftList, widthList, heightList, unit, outfile):
 # pc to mb
 def pcToM(pcWidthStyle, pcHeightStyle):
     for i in linkImageNum:
-        img = cv2.imread(filePath + "\\image_" + i + ".jpg")
+        img = cv2.imread(filePath + "/image_" + i + ".jpg")
 
         imageHeight, imageWidth, imageChannel = img.shape
        
