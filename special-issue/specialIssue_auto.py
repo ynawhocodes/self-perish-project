@@ -174,9 +174,9 @@ preview_check = Label(window , text="미리보기")
 
 # label grid
 folder_path.grid(row=0, column=0)
-link_img_num.grid(row=3, column=0)
-bg_color.grid(row=2, column=0)
 cyberduck_path.grid(row=1, column=0)
+bg_color.grid(row=2, column=0)
+link_img_num.grid(row=3, column=0)
 preview_check.grid(row=6, column=0)
 
 
@@ -193,9 +193,9 @@ previewMB_btn = Button(window, text="MB", command=previewMB, width=6)
 
 # btn grid
 folder_path_btn.grid(row=0, column=1, columnspan=6)
-link_img_num_entry.grid(row=3, column=1, columnspan=6)
-bg_color_entry.grid(row=2, column=1, columnspan=6)
 cyberduck_path_entry.grid(row=1, column=1, columnspan=6)
+bg_color_entry.grid(row=2, column=1, columnspan=6)
+link_img_num_entry.grid(row=3, column=1, columnspan=6)
 preview_btn.grid(row=6, column=1)
 previewPC_btn.grid(row=6, column=2)
 previewMB_btn.grid(row=6, column=3)
