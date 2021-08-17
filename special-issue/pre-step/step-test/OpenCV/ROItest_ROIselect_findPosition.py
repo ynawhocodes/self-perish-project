@@ -3,7 +3,7 @@
 import cv2, numpy as np
 import sys
 
-img = cv2.imread('./img_05.jpg')
+img = cv2.imread('/Users/yang/project/self-perish-project/special-issue/pre-step/step-test/OpenCV/img_05.jpg')
 
 if img is None:
     print('Image load failed')
