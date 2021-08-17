@@ -14,13 +14,17 @@ html과 css로 a태그의 위치를 일일이 잡을 필요없이 드래그를 �
 | 비교 | AS-IS | TO-BE | 결과 |
 |:--------:|:--------:|:--------:|:----:|
 | 시간 | 30분 소요 | 5분 소요 | 6배 단축 |
-| 효율 | 각 a태그의 top,margin-left 값을 잡아줘야 함 | 드래그로 위치를 css코드로 자동 변환 | 같은 업무를 하시는 동료분과 함께 사용중 |
+| 효율 | 각 a태그의 top,margin-left 값을 잡아줘야 함 | 드래그로 위치를 css코드로 자동 변환 | 같은 업무를 하시는 동료분과 함께 사용중 
+
+- 현재 MUSINSA wiki에 작성해두어 사내공유 중
+<img src="./special-issue/src/view.png" width="700">
 
 ### 기능 설명
 - [ ] selectROI
 
 ### Release Note  
 - [version 1.0.0](https://github.com/ynawhocodes/self-perish-project/blob/master/special-issue/release/sp-auto_v.1.0.0.zip)
+
 
 
 
