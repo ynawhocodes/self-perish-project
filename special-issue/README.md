@@ -56,5 +56,5 @@
 **2021.07.30**  
 - [07. Mac, Window OS 환경에 맞는 유동적인 사이즈로 변경](https://github.com/ynawhocodes/self-perish-project/commit/e038cced6eca03783dc95d7b3552cc336000b0c3#diff-cd574a4dd7cb32d211de888a2f0055fcc1a55aacfc92d042587480ab2fddee4e)
 
-**2021.08/18**
+**2021.08.17**
 - [08. Mac 버전 개발 완료](https://github.com/ynawhocodes/self-perish-project/commit/51d8d8b95166a7cd99995e14e9acf75e98b5af18)
