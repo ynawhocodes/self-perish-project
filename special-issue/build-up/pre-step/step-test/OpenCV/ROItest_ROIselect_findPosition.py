@@ -5,8 +5,9 @@ import sys
 # mac test
 # img = cv2.imread('/Users/yang/project/self-perish-project/special-issue/pre-step/step-test/OpenCV/img_05.jpg')
 
-# window test
-img = cv2.imread('C:\\Users\\nw139\OneDrive\\바탕 화면\\images\\image_1.jpg')
+# window test - notebook
+# img = cv2.imread('C:\\Users\\nw139\OneDrive\\바탕 화면\\images\\image_1.jpg')
+img = cv2.imread('./image_1.jpg')
 if img is None:
     print('Image load failed')
     sys.exit()
