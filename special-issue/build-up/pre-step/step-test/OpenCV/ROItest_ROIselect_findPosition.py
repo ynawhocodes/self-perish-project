@@ -6,8 +6,13 @@ import sys
 # img = cv2.imread('/Users/yang/project/self-perish-project/special-issue/pre-step/step-test/OpenCV/img_05.jpg')
 
 # window test - notebook
-# img = cv2.imread('C:\\Users\\nw139\OneDrive\\바탕 화면\\images\\image_1.jpg')
-img = cv2.imread('./image_1.jpg')
+
+# 절대 경로
+img = cv2.imread('C:\\Users\\nw139\\image_1.jpg')
+
+# 상대 경로로 했을 경우 해당 폴더로 이동 후 실행해야 ok
+# img = cv2.imread('./image_1.jpg')
+
 if img is None:
     print('Image load failed')
     sys.exit()
