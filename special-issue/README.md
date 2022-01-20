@@ -58,3 +58,6 @@
 
 **2021.08.17**
 - [08. Mac 버전 개발 완료](https://github.com/ynawhocodes/self-perish-project/commit/51d8d8b95166a7cd99995e14e9acf75e98b5af18)
+   
+**2021.12.27**
+- [디자인 변경에 따른 동영상 비율 수정, 본문과 이벤트 코드 분리](https://github.com/ynawhocodes/self-perish-project/commit/62f97493e2c346a47515467347aaeebd4e601a2a#diff-cd574a4dd7cb32d211de888a2f0055fcc1a55aacfc92d042587480ab2fddee4e)
