@@ -5,15 +5,18 @@ import os
 from datetime import datetime
 import cv2, numpy as np
 
-def changeFileName():
+def putFileName():
     global imageNum
     imageNum = 1
+    global fileName
+    fileName = []
+
     file_names = os.listdir(filePath)
     for name in file_names:
         src = os.path.join(filePath, name) # 현재 이미지 경로
-        new_name = "image_" + str(imageNum) + ".jpg" # 새로운 이름
-        new_name = os.path.join(filePath, new_name) # 경로 + 새로운 이름
-        os.rename(src, new_name)
+        print("name: " + name)
+        fileName.append(name)
+        print("fileName: "+ fileName[imageNum-1])
         imageNum += 1
 
     # 초기화
@@ -25,8 +28,6 @@ def changeFileName():
     width = ["width"] * imageNum
     global height
     height = ["height"] * imageNum
-
-    # 초기화
     global url
     url = ["url"] * imageNum
 
@@ -34,7 +35,7 @@ def openFolder():
     window.dirName=filedialog.askdirectory()
     global filePath
     filePath = str(window.dirName)
-    changeFileName()
+    putFileName()
 
 videoInfo = []
 
