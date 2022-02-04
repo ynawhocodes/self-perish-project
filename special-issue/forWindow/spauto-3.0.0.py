@@ -9,7 +9,7 @@ def putFileName():
     global imageNum
     imageNum = 1
     global fileName
-    fileName = []
+    fileName = ['init']
 
     file_names = os.listdir(filePath)
     for name in file_names:
@@ -244,21 +244,20 @@ def blockCode(outfile):
     for i in range(1, imageNum - 1):
         if(isVideo == True):
             if str(i) in linkImageNum:            
-                outfile.write("<div class=\"block block" + str(i) + "\"><a href=\"" + url[i] + "\" class=\"link\">link</a><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + cyberduck_path_entry.get() + "/image_" + str(i)+".jpg?" + parameter + "\" alt=\"\"></div>\n")             
+                outfile.write("<div class=\"block block" + str(i) + "\"><a href=\"" + url[i] + "\" class=\"link\">link</a><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + cyberduck_path_entry.get() +  "/" + fileName[i] + "?" + parameter + "\" alt=\"\"></div>\n")             
             else:
                 if(str(i) !=  videoInfo[0]):   
-                    outfile.write("<div class=\"block block" + str(i) + "\"><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + cyberduck_path_entry.get() + "/image_" + str(i) + ".jpg?" + parameter + "\" alt=\"\"></div>\n")
+                    outfile.write("<div class=\"block block" + str(i) + "\"><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + cyberduck_path_entry.get() +  "/" + fileName[i] + "?" + parameter + "\" alt=\"\"></div>\n")
                 else:  
-                    outfile.write("<div class=\"block block" +  videoInfo[0] + "\">\n<img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + cyberduck_path_entry.get() + "/image_" + str(i)+".jpg?" + parameter + "\" alt=\"\">\n    <div class=\"video-wrap\">\n        <div class=\"video-content\">\n            <iframe src=\"https://www.youtube.com/embed/" + videoInfo[1] + "\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>\n        </div>\n    </div>\n</div>\n")                         
+                    outfile.write("<div class=\"block block" +  videoInfo[0] + "\">\n<img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + cyberduck_path_entry.get() +  "/" + fileName[i] + "?" + parameter + "\" alt=\"\">\n    <div class=\"video-wrap\">\n        <div class=\"video-content\">\n            <iframe src=\"https://www.youtube.com/embed/" + videoInfo[1] + "\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>\n        </div>\n    </div>\n</div>\n")                         
 
         else:
             if str(i) in linkImageNum:   
-                outfile.write("<div class=\"block block" + str(i) + "\"><a href=\"" + url[i] + "\" class=\"link\">link</a><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + cyberduck_path_entry.get() + "/image_" + str(i)+".jpg?" + parameter + "\" alt=\"\"></div>\n")
+                outfile.write("<div class=\"block block" + str(i) + "\"><a href=\"" + url[i] + "\" class=\"link\">link</a><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + cyberduck_path_entry.get() +  "/" + fileName[i] + "?" + parameter + "\" alt=\"\"></div>\n")
             else:   
-                outfile.write("<div class=\"block block" + str(i) + "\"><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + cyberduck_path_entry.get() + "/image_" + str(i) + ".jpg?" + parameter + "\" alt=\"\"></div>\n")                     
+                outfile.write("<div class=\"block block" + str(i) + "\"><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + cyberduck_path_entry.get() +  "/" + fileName[i] + "?" + parameter + "\" alt=\"\"></div>\n")                     
    
-   
-    outfile.write("\n\n\n<!-- event -->\n<div class=\"block block" + str(imageNum - 1) + "\"><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + cyberduck_path_entry.get() + "/image_" + str(imageNum - 1) + ".jpg?" + parameter + "\" alt=\"\"></div>\n<!-- //event -->\n\n")
+    outfile.write("\n\n\n<!-- event -->\n<div class=\"block block" + str(imageNum - 1) + "\"><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + cyberduck_path_entry.get() +  "/" + fileName[imageNum] + "?" + parameter + "\" alt=\"\"></div>\n<!-- //event -->\n\n")
 
 window.mainloop()
 
