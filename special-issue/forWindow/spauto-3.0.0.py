@@ -11,7 +11,6 @@ def putFileName():
     imageNum = 1
     global fileName
     fileName = ['init']
-
     file_names = os.listdir(filePath)
     file_names = natsort.natsorted(file_names)
     for name in file_names:
@@ -55,7 +54,6 @@ def saveUrl():
 
     url_window.destroy()
        
-
 def inputUrl():
     global url_window
     url_window = Toplevel(window)
@@ -91,8 +89,6 @@ def inputUrl():
 
     save_btn = Button(url_window, text="저장", command=lambda: saveUrl())
     save_btn.grid(row=100, column=2)
-   
-
 
 # 파라미터
 parameter = str(datetime.now().year) + str(datetime.now().month) + str(datetime.now().day) + str(datetime.now().hour) + str(datetime.now().minute)
@@ -161,7 +157,6 @@ window.title("special issue")
 window.geometry("279x144+1200+500")
 window.resizable(False, False)
 
-
 # label
 folder_path = Label(window , text="이미지 경로")
 link_img_num = Label(window , text="링크있는 이미지 번호")
@@ -178,7 +173,6 @@ bg_color.grid(row=2, column=0)
 cyberduck_path.grid(row=1, column=0)
 preview_check.grid(row=6, column=0)
 
-
 # btn
 folder_path_btn = Button(window, text="찾아보기", command=openFolder, width=20)
 link_img_num_entry = Entry(window)
@@ -189,7 +183,6 @@ preview_btn = Button(window, text="폴더열기", command=preview, width=6)
 previewPC_btn = Button(window, text="PC", command=previewPC, width=6)
 previewMB_btn = Button(window, text="MB", command=previewMB, width=6)
    
-
 # btn grid
 folder_path_btn.grid(row=0, column=1, columnspan=6)
 link_img_num_entry.grid(row=3, column=1, columnspan=6)
@@ -207,14 +200,11 @@ url_position_btn = Button(window, text="url위치", command=setPosition, width=6
 url_btn = Button(window, text="url입력", command=inputUrl, width=6)
 save_btn = Button(window, text="저장", command=saveFile, width=6)
 
-
-
 # url grid
 video_check.grid(row=5, column=0)
 url_position_btn.grid(row=5, column=1)
 url_btn.grid(row=5, column=2)
 save_btn.grid(row=5, column=3)
-
 
 # style 출력
 def style(topList, marginLeftList, widthList, heightList, unit, outfile): 
@@ -227,7 +217,6 @@ def style(topList, marginLeftList, widthList, heightList, unit, outfile):
         else:
             outfile.write("    .n-detail-special .video-wrap {position:absolute;left:50%;top:0%;width:1080px;height:608px; margin-left:-540px;}\n    .n-detail-special .video-wrap iframe {position:absolute;left:0;top:0;width:100%;height:100%;}\n")
     outfile.write("</style>\n")
-
 
 # pc to mb
 def pcToM(pcWidthStyle, pcHeightStyle):
@@ -258,23 +247,4 @@ def blockCode(outfile):
                 outfile.write("<div class=\"block block" + str(i) + "\"><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + cyberduck_path_entry.get() +  "/" + fileName[i] + "?" + parameter + "\" alt=\"\"></div>\n")        
     outfile.write("\n\n\n<!-- event -->\n<div class=\"block block" + str(imageNum - 1) + "\"><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + cyberduck_path_entry.get() +  "/" + fileName[imageNum - 1] + "?" + parameter + "\" alt=\"\"></div>\n<!-- //event -->\n\n")
 
-
 window.mainloop()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
