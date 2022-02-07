@@ -4,6 +4,7 @@ from tkinter import ttk
 import os
 from datetime import datetime
 import cv2, numpy as np
+import natsort
 
 def putFileName():
     global imageNum
@@ -12,11 +13,10 @@ def putFileName():
     fileName = ['init']
 
     file_names = os.listdir(filePath)
+    file_names = natsort.natsorted(file_names)
     for name in file_names:
         src = os.path.join(filePath, name) # 현재 이미지 경로
-        print("name: " + name)
         fileName.append(name)
-        print("fileName: "+ fileName[imageNum-1])
         imageNum += 1
 
     # 초기화
@@ -255,9 +255,9 @@ def blockCode(outfile):
             if str(i) in linkImageNum:   
                 outfile.write("<div class=\"block block" + str(i) + "\"><a href=\"" + url[i] + "\" class=\"link\">link</a><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + cyberduck_path_entry.get() +  "/" + fileName[i] + "?" + parameter + "\" alt=\"\"></div>\n")
             else:   
-                outfile.write("<div class=\"block block" + str(i) + "\"><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + cyberduck_path_entry.get() +  "/" + fileName[i] + "?" + parameter + "\" alt=\"\"></div>\n")                     
-   
-    outfile.write("\n\n\n<!-- event -->\n<div class=\"block block" + str(imageNum - 1) + "\"><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + cyberduck_path_entry.get() +  "/" + fileName[imageNum] + "?" + parameter + "\" alt=\"\"></div>\n<!-- //event -->\n\n")
+                outfile.write("<div class=\"block block" + str(i) + "\"><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + cyberduck_path_entry.get() +  "/" + fileName[i] + "?" + parameter + "\" alt=\"\"></div>\n")        
+    outfile.write("\n\n\n<!-- event -->\n<div class=\"block block" + str(imageNum - 1) + "\"><img src=\"https://image.msscdn.net/musinsaUI/specialissue/" + cyberduck_path_entry.get() +  "/" + fileName[imageNum - 1] + "?" + parameter + "\" alt=\"\"></div>\n<!-- //event -->\n\n")
+
 
 window.mainloop()
 
