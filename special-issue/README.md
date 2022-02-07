@@ -40,6 +40,8 @@
 <img src="./video-src/gif/2x/6.gif" width="700">
 
 #### 성능 개선
+  
+> version 2.0.0  
 
 **2021.06.10**
 - [01. 이미지 파일명 img로 저장할 수 있게 변경](https://github.com/ynawhocodes/self-perish-project/commit/92e561607eea7833bb82b38d2eea80e43fde880e)
@@ -61,3 +63,15 @@
    
 **2021.12.27**
 - [디자인 변경에 따른 동영상 비율 수정, 본문과 이벤트 코드 분리](https://github.com/ynawhocodes/self-perish-project/commit/62f97493e2c346a47515467347aaeebd4e601a2a#diff-cd574a4dd7cb32d211de888a2f0055fcc1a55aacfc92d042587480ab2fddee4e)
+
+
+> version 3.0.0  
+
+**2022.02.04**
+- [파일명 읽는 방법 변경](https://github.com/ynawhocodes/self-perish-project/commit/0c926a34021c0ab8d124988a06f8253d2d59e59b)  
+  - **[AS-IS]** 이미지 파일명 자동 변경 **[TO-BE]** 이미지 파일명 그대로 입력받도록 함
+  - 파일명 자동변경이 된 파일들을 다시 읽어오는 경우 같은 이름으로 변경되기 때문에 오류가 남. 이 때문에 지금까지 파일 삭제하고 포토샵에서 다시 파일 저장해왔는데 이 번거로움을 줄이기 위함  
+
+**2022.02.07**
+- [os.listdir의 파일 정렬 문제 해결](https://github.com/ynawhocodes/self-perish-project/commit/0a561dedddf53f2e7f30cb099591daf71e790e96)
+  - mac에서도 사용할 수 있도록 파일 정렬 방법을 통일 시킴 
