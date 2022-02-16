@@ -5,6 +5,7 @@ import os
 from datetime import datetime
 import cv2, numpy as np
 import natsort
+import subprocess, sys
 
 def putFileName():
     global imageNum
@@ -144,13 +145,25 @@ def saveMB():
     outfile.close()
 
 def preview():
-    os.startfile(filePath[:-7])
+    if sys.platform == "win32":
+        os.startfile(filePath[:-7])
+    else:
+        opener ="open" if sys.platform == "darwin" else "xdg-open"
+        subprocess.call([opener, filePath[:-7]])
 
 def previewPC():
-    os.startfile(filePath[:-7] + "/sp.html")
+    if sys.platform == "win32":
+        os.startfile(filePath[:-7] + "/sp.html")
+    else:
+        opener ="open" if sys.platform == "darwin" else "xdg-open"
+        subprocess.call([opener, filePath[:-7] + "/sp.html"])
 
 def previewMB():
-    os.startfile(filePath[:-7] + "/sp-m.html")
+    if sys.platform == "win32":
+        os.startfile(filePath[:-7] + "/sp-m.html")
+    else:
+        opener ="open" if sys.platform == "darwin" else "xdg-open"
+        subprocess.call([opener, filePath[:-7] + "/sp-m.html"])
 
 window = Tk()
 window.title("special issue")
