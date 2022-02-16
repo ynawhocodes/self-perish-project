@@ -97,7 +97,7 @@ def setPosition():
     global linkImageNum
     linkImageNum = list(link_img_num_entry.get().split())
     for i in linkImageNum:
-        img = cv2.imread(filePath + "\\image_" + i + ".jpg")
+        img = cv2.imread(filePath + "/" + fileName[int(i)])
         x,y,w,h	= cv2.selectROI('image', img, False)
         if w and h:
             roi = img[y:y+h, x:x+w]  
@@ -114,7 +114,7 @@ def saveFile():
     saveMB()
 
 def savePC():
-    outfile = open(filePath[:-7] + "\\sp.html", "w")
+    outfile = open(filePath[:-7] + "/sp.html", "w")
     # 전체 틀
     outfile.write("<!DOCTYPE html>\n<html lang=\"ko\">\n<head>\n    <link type=\"text/css\" rel=\"stylesheet\" href=\"https://image.msscdn.net/ui/utility/event/css/common.css?202005181853\">\n    <style>* {margin:0;padding:0;} .link{background-color:rgba(212,5,5,.5)}</style>\n    <title>special issue</title>\n</head>\n<body>\n")
     outfile.write("<div class=\"n-detail-special\">\n")
@@ -127,7 +127,7 @@ def savePC():
     outfile.close()
 
 def saveMB():
-    outfile = open(filePath[:-7]  + "\\sp-m.html", "w")
+    outfile = open(filePath[:-7]  + "/sp-m.html", "w")
         
     pcToM(marginLeft, top)
     pcToM(width, height)
@@ -147,14 +147,14 @@ def preview():
     os.startfile(filePath[:-7])
 
 def previewPC():
-    os.startfile(filePath[:-7] + "\\sp.html")
+    os.startfile(filePath[:-7] + "/sp.html")
 
 def previewMB():
-    os.startfile(filePath[:-7] + "\\sp-m.html")
+    os.startfile(filePath[:-7] + "/sp-m.html")
 
 window = Tk()
 window.title("special issue")
-window.geometry("279x144+1200+500")
+#window.geometry("279x144+1200+500")
 window.resizable(False, False)
 
 # label
@@ -221,8 +221,7 @@ def style(topList, marginLeftList, widthList, heightList, unit, outfile):
 # pc to mb
 def pcToM(pcWidthStyle, pcHeightStyle):
     for i in linkImageNum:
-        img = cv2.imread(filePath + "\\image_" + i + ".jpg")
-
+        img = cv2.imread(filePath + "/" + fileName[int(i)])
         imageHeight, imageWidth, imageChannel = img.shape
        
         pcWidthStyle[int(i)] = format(int(pcWidthStyle[int(i)]) / 10.8, ".2f")
