@@ -75,3 +75,7 @@
 **2022.02.07**
 - [os.listdir의 파일 정렬 문제 해결](https://github.com/ynawhocodes/self-perish-project/commit/0a561dedddf53f2e7f30cb099591daf71e790e96)
   - mac에서도 사용할 수 있도록 파일 정렬 방법을 통일 시킴 
+
+**2022.03.02**  
+- [mac용 파일명 자동 변경되는 버전 추가로 개발](https://github.com/ynawhocodes/self-perish-project/commit/b9f424cf479f5acea4e429a69a6731604edda5d1)  
+  - 함께 쓰는 직원분들 요청으로 파일명 변경 버전 추가로 개발
