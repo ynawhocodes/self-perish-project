@@ -25,7 +25,7 @@ html과 css로 a태그의 위치를 일일이 잡을 필요없이 드래그를 �
 ### Release Note  
 - [version 1.0.0](https://github.com/ynawhocodes/self-perish-project/blob/master/special-issue/release/sp-auto_v.1.0.0.zip)
 - [version 2.0.0](https://github.com/ynawhocodes/self-perish-project/blob/master/special-issue/release/sp-auto_v.2.0.0.zip)
-
+- [version 3.0.0]
 
 
 ## 2. plan 자동화 프로그램
